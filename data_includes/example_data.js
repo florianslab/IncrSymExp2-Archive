@@ -159,13 +159,13 @@ var items = [
                       {
                         legend: function(x){ return [x.item,x.group,x.condition,x.inference_about,x.trigger,x.sentence,x.inference].join("+"); },
                         sentence: function(x){ return get_sentence(x.sentence); },
-                        inference:function(x){
+                        inference: function(x){ return get_inference(x.inference); },
+                        sequence:function(x){
                             var debug = "";
                             if (Parameters.hasOwnProperty("Debug")) 
                                 debug = "Condition: "+x.condition+" ('TrF' = Test Ps in First conjunct, 'TrL' = Test Ps in Last conjunct, '(n)P' = (non-)Ps control, 'F...' = fillers)";
                             return [
                               debug,
-                              {this: "debug"},       // DEBUG INFORMATION
                               {this: "sentence"},
                               {this: "inference"},
                               {this: "answers", showKeys: "top"}
